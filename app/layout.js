@@ -1,6 +1,7 @@
 import Header from "./_components/Header";
 import Logo from "./_components/Logo";
 import Navigation from "./_components/Navigation";
+import { ReservationProvider } from "./_components/ReservationContext";
 import "./_styles/globals.css"
 
 import {Josefin_Sans} from "next/font/google";
@@ -25,7 +26,12 @@ export default function RootLayout({ children }) {
       <body className={` ${josefin.className} bg-primary-950 min-h-screen antialiased  text-primary-100 flex flex-col`}>
         <Header />
         <div className="flex-1  px-8 py-12  w-full"> 
-        <main className="max-w-4xl   grid ">{children}</main>
+        <main className="max-w-4xl   grid ">
+
+          <ReservationProvider>
+            {children}
+          </ReservationProvider>
+          </main>
         </div>
         
       </body>
